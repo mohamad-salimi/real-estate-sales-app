@@ -4,7 +4,7 @@ import User from "@/models/User";
 import { verifyPassword } from "@/utils/auth";
 import { connectDB } from "@/utils/connectDB";
 
-const authOptions = {
+export const authOptions = {
   session: { strategy: "jwt" },
   providers: [
     CredentialsProvider({
@@ -14,6 +14,7 @@ const authOptions = {
         try {
           await connectDB;
         } catch (error) {
+          console.log("error");
           throw new Error("مشکلی در سرور رخ داده است");
         }
 
@@ -41,4 +42,4 @@ const authOptions = {
 
 const handler = NextAuth(authOptions);
 
-export { handler as Get, handler as POST };
+export { handler as GET, handler as POST };

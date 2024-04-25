@@ -2,13 +2,18 @@ import React from "react";
 import Link from "next/link";
 // Icons
 import { FiLogIn } from "react-icons/fi";
+import { FaUserAlt } from "react-icons/fa";
 // Styles
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
+import { useSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
-const Header = () => {
+const Header = async () => {
+  const session = await getServerSession(authOptions);
   return (
     <header className={styles.header}>
-      <div>
+      <div className={styles.header_right_section}>
         <ul>
           <li>
             <Link href="./">صفحه اصلی</Link>
@@ -20,12 +25,20 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <div className={styles.login}>
-        <Link href="./signin">
-          <FiLogIn />
-          <span>ورود</span>
-        </Link>
-      </div>
+      {session ? (
+        <div className={styles.login}>
+          <Link href="./dashboard">
+            <FaUserAlt />
+          </Link>
+        </div>
+      ) : (
+        <div className={styles.login}>
+          <Link href="./signin">
+            <FiLogIn />
+            <span>ورود</span>
+          </Link>
+        </div>
+      )}
     </header>
   );
 };

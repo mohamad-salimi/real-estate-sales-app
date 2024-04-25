@@ -8,7 +8,6 @@ export async function POST(req) {
     await connectDB;
 
     const { email, password } = await req.json();
-    console.log({ email, password });
 
     if (!email || !password) {
       return NextResponse.json(
@@ -18,7 +17,6 @@ export async function POST(req) {
     }
 
     const existingUser = await User.findOne({ email });
-    console.log(existingUser);
 
     if (existingUser) {
       return NextResponse.json(
@@ -33,7 +31,6 @@ export async function POST(req) {
       email: email,
       password: hashedPassword,
     });
-    console.log(newUser);
 
     return NextResponse.json(
       { message: "حساب کاربری ایجاد شد." },
