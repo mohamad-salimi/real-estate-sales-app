@@ -5,7 +5,6 @@ import { FiLogIn } from "react-icons/fi";
 import { FaUserAlt } from "react-icons/fa";
 // Styles
 import styles from "./Header.module.scss";
-import { useSession } from "next-auth/react";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
