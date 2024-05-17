@@ -13,8 +13,8 @@ const MyProfiles = async () => {
     {
       $lookup: {
         from: "profiles",
-        foreignField: "user",
-        localField: "_id,",
+        foreignField: "userId",
+        localField: "_id",
         as: "profiles",
       },
     },

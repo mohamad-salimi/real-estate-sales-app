@@ -18,12 +18,12 @@ const profileSchema = new Schema(
       type: String,
       required: true,
     },
-    price: {
-      type: Number,
-      required: true,
-    },
     realState: {
       type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
       required: true,
     },
     constructionDate: {
@@ -32,7 +32,7 @@ const profileSchema = new Schema(
     },
     category: {
       type: String,
-      enam: ["villa", "apartment", "store", "office"],
+      enum: ["villa", "apartment", "store", "office"],
       required: true,
     },
     amenities: {
@@ -46,6 +46,10 @@ const profileSchema = new Schema(
     userId: {
       type: Schema.Types.ObjectId,
       ref: "User",
+    },
+    published: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true }

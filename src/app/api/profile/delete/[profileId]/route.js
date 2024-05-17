@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
+import { connectDB } from "@/utils/connectDB";
 import { getServerSession } from "next-auth";
 import Profile from "@/models/Profile";
 import User from "@/models/User";
-import { connectDB } from "@/utils/connectDB";
 
 export async function DELETE(req, context) {
   try {
     await connectDB;
+
     const id = context.params.profileId;
 
     const session = await getServerSession(req);

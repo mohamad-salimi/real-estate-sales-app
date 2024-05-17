@@ -34,7 +34,7 @@ const SignUpPage = () => {
     setLoading(false);
 
     if (res.status === 201) {
-      router.push("/signin");
+      router.push("/");
     } else {
       toast.error(data.error);
     }

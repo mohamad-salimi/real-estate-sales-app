@@ -53,7 +53,7 @@ const SignInPage = () => {
           <Loader />
         ) : (
           <button type="submit" onClick={signInHandler}>
-            ثبت نام
+            ورود
           </button>
         )}
       </form>
