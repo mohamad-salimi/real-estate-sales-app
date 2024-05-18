@@ -8,7 +8,7 @@ export async function DELETE(req, context) {
   try {
     await connectDB;
 
-    const id = context.params.profileId;
+    const id = context?.params.profileId;
 
     const session = await getServerSession(req);
     if (!session) {

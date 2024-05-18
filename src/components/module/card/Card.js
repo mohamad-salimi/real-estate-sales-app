@@ -9,7 +9,7 @@ import { BiLeftArrowAlt } from "react-icons/bi";
 import { icons } from "src/constans/icons";
 import { sp } from "@/utils/replaceNumber";
 
-const Card = ({ data: { category, title, location, price } }) => {
+const Card = ({ data: { _id, category, title, location, price } }) => {
   return (
     <div className={styles.container}>
       <div className={styles.icon}>{icons[category]}</div>
@@ -18,7 +18,7 @@ const Card = ({ data: { category, title, location, price } }) => {
         <HiOutlineLocationMarker /> {location}
       </p>
       <span>{sp(price)} تومان</span>
-      <Link href="./">
+      <Link href={`/buy-residential/${_id}`}>
         مشاهده آگهی
         <BiLeftArrowAlt />
       </Link>
