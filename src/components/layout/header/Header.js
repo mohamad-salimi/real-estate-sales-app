@@ -16,7 +16,7 @@ const Header = () => {
       <div className={styles.header_right_section}>
         <ul>
           <li>
-            <Link href="./">صفحه اصلی</Link>
+            <Link href="/">صفحه اصلی</Link>
           </li>
         </ul>
         <ul>

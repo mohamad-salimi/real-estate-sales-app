@@ -9,7 +9,7 @@ export async function GET() {
   try {
     await connectDB;
 
-    const profiles = await Profile.find().select("-userId");
+    const profiles = await Profile.find({ published: true }).select("-userId");
 
     return NextResponse.json(
       {
@@ -90,7 +90,6 @@ export async function POST(req) {
       price: +price,
       userId: new Types.ObjectId(user._id),
     });
-    console.log(newProfile);
     return NextResponse.json(
       { message: "آگهی جدید اضافه شد" },
       { status: 201 }

@@ -6,6 +6,10 @@ import { redirect } from "next/navigation";
 import { connectDB } from "@/utils/connectDB";
 import User from "@/models/User";
 
+export const metadata = {
+  title: "پنل کاربری | خرید و فروش املاک",
+};
+
 const DashboardLayout = async ({ children }) => {
   const session = await getServerSession(authOptions);
   if (!session) redirect("/signin");
@@ -15,7 +19,9 @@ const DashboardLayout = async ({ children }) => {
 
   if (!user) return <h3>مشکلی پیش آمده است</h3>;
   return (
-    <DashboardSidebar email={session?.user?.email}>{children}</DashboardSidebar>
+    <DashboardSidebar email={user?.email} role={user?.role}>
+      {children}
+    </DashboardSidebar>
   );
 };
 

@@ -6,7 +6,6 @@ import Card from "@/module/card/Card";
 import Sidebar from "@/module/sidebar/Sidebar";
 
 const BuyResidentialPage = ({ data }) => {
-  console.log(data);
   return (
     <div className={styles.container}>
       <div className={styles.sidebar}>

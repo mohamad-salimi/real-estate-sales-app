@@ -12,7 +12,7 @@ const DashboardSidebar = ({ children, email, role }) => {
     <div className={styles.container}>
       <div className={styles.sidebar}>
         <CgProfile />
-        {role === "ADMIN" ? "ادمین" : null}
+        {role === "ADMIN" && <p className={styles.role}>ادمین</p>}
         <p>{email}</p>
         <span></span>
         <Link href="/dashboard">حساب کاربری</Link>
